@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🌤️ Weather Dashboard</h1>
+            
+            <div class="search-container">
+                <button class="auto-detect-btn" id="autoDetectBtn">
+                    📍 Auto-Detect My Location
+                </button>
+                
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="cityInput" 
+                        placeholder="Or enter city name..."
+                    >
+                    <button id="searchBtn">Search</button>
+                </div>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                Loading weather data...
+            </div>
+
+            <div id="error" class="error" style="display: none;"></div>
+
+            <div id="weatherInfo" class="weather-info">
+                <div class="location">
+                    <h2 id="cityName"></h2>
+                    <p id="country"></p>
+                </div>
+
+                <div class="main-weather">
+                    <div class="weather-icon" id="weatherIcon"></div>
+                    <div class="temperature" id="temperature"></div>
+                    <div class="description" id="description"></div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Feels Like</span>
+                        <span class="detail-value" id="feelsLike"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Humidity</span>
+                        <span class="detail-value" id="humidity"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Wind Speed</span>
+                        <span class="detail-value" id="windSpeed"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Wind Direction</span>
+                        <span class="detail-value" id="windDirection"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Visibility</span>
+                        <span class="detail-value" id="visibility"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Pressure</span>
+                        <span class="detail-value" id="pressure"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
